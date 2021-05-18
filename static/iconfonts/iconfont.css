@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2555454 */
+  src: url('~@/static/iconfonts/iconfont.ttf')
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhu:before {
+  content: "\e6ab";
+}
+
+.icon--xiaozhu:before {
+  content: "\e618";
+}
+
+.icon-romantic:before {
+  content: "\e738";
+}
+
+.icon-in-love:before {
+  content: "\e739";
+}
+
+.icon-kiss:before {
+  content: "\e73a";
+}
+
+.icon-baomihua:before {
+  content: "\e646";
+}
+
+.icon-dangao:before {
+  content: "\e648";
+}
+
+.icon-kafei:before {
+  content: "\e64a";
+}
+
+.icon-shengnvguo:before {
+  content: "\e64f";
+}
+
+.icon-yingtao:before {
+  content: "\e651";
+}
+
+.icon-meishi:before {
+  content: "\e650";
+}
+

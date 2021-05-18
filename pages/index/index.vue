@@ -1,18 +1,21 @@
 <template>
 	<view class="content">
-		<image class="logo" src="https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg"></image>
+		<image class="logo" src="@/static/img/bmh.png"></image>
 		<view class="text-area">
 			<text class="title">欢迎来到猪胖食堂，请用心选择晚餐哦~</text>
 		</view>
-		 <navigator url="/pages/list/list"><view class="fat-btn">开启美食之旅吧</view></navigator>
+		<navigator url="/pages/list/list">
+			<van-button custom-class="fat-btn" :round="true">开始美食之旅吧</van-button>
+		</navigator>
 	</view>
 </template>
-
 <script>
 	export default {
+		components: {
+
+		},
 		data() {
-			return {
-			}
+			return {}
 		},
 		onLoad() {
 
@@ -24,12 +27,11 @@
 </script>
 
 <style lang="scss" scoped>
-	.fat-btn{
-		padding: 20rpx 25rpx;
+	.fat-btn {
 		border: 1rpx solid #ffe300;
-		border-radius: 50rpx;
 		color: #ffe300;
 	}
+
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -38,9 +40,9 @@
 	}
 
 	.logo {
-		
-		width: 400rpx;
-		height: 300rpx;
+
+		width: 200rpx;
+		height: 200rpx;
 		margin-top: 200rpx;
 		margin-left: auto;
 		margin-right: auto;
