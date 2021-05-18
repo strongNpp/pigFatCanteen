@@ -5,22 +5,28 @@
 		</view>
 		<view class="fat-detail-card">
 			<view class="card-item">
-				<image src="https://cdn.ggac.com/media/work/image/2021/05/4e921430-b7b8-11eb-ba1c-0242c0a88002.jpg">
-				</image>
+				<van-image use-loading-slot width="30" height="30"
+					src="https://cdn.ggac.com/media/work/image/2021/05/4e921430-b7b8-11eb-ba1c-0242c0a88002.jpg">
+					<text slot="loading">图片加载中</text>
+				</van-image>
 				<view>
 					<text>使用食材：</text>{{infoObj.stuff}}
 				</view>
 			</view>
 			<view class="card-item">
-				<image src="https://cdn.ggac.com/media/work/image/2021/05/4e818854-b7b8-11eb-93ad-0242c0a84002.jpg">
-				</image>
+				<van-image use-loading-slot width="30" height="30"
+					src="https://cdn.ggac.com/media/work/image/2021/05/4e818854-b7b8-11eb-93ad-0242c0a84002.jpg">
+					<text slot="loading">图片加载中</text>
+				</van-image>
 				<view>
 					<text>完美搭配：</text> {{infoObj.collocat}}
 				</view>
 			</view>
 			<view class="card-item">
-				<image src="https://cdn.ggac.com/media/work/image/2021/05/5466f0d8-b7b8-11eb-955c-0242c0a82002.jpg">
-				</image>
+				<van-image use-loading-slot width="30" height="30"
+					src="https://cdn.ggac.com/media/work/image/2021/05/5466f0d8-b7b8-11eb-955c-0242c0a82002.jpg">
+					<text slot="loading">图片加载中</text>
+				</van-image>
 				<view>
 					<text>可搭配饮品：</text> {{infoObj.drink}}
 				</view>
@@ -30,7 +36,11 @@
 </template>
 
 <script>
+	import image from '@/wxcomponents/vant/image/index';
 	export default {
+		components: {
+			"van-image": image
+		},
 		data() {
 			return {
 				infoList: [{
@@ -70,7 +80,7 @@
 		padding: 20rpx;
 
 		.name {
-			margin-bottom: 30rpx;
+			margin: 30rpx 0;
 			text-align: center;
 		}
 
@@ -96,6 +106,7 @@
 				text {
 					color: #777;
 					flex-shrink: 0;
+					margin-left: 20rpx;
 				}
 			}
 		}

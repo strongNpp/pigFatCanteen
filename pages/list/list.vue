@@ -4,7 +4,9 @@
 			<van-tab title="面食">
 				<view class="list-all" v-for="(item,i) in wheatenList" :key="i">
 					<view class="list-all-item" >
-						<van-image width="100" height="100" round lazy-load :src="item.url"></van-image>
+						<van-image use-loading-slot width="100" height="100" radius="4" lazy-load :src="item.url">
+							<text  slot="loading">图片加载中</text>
+						</van-image>
 						<view>
 							<view class="list-all-item-name">{{item.name}}</view>
 							<van-button size="small" :round="true" @click="goToDetial(item)">查看详情</van-button>
