@@ -3,13 +3,13 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "小笨和小胖的食堂"
+				"navigationBarTitleText": "ZPFOOD"
 			}
 		},
 		{
 			"path": "pages/list/list",
 			"style": {
-				"navigationBarTitleText": "美食列表",
+				"navigationBarTitleText": "ZPFOOD-lIST",
 				"enablePullDownRefresh": false
 			}
 		}
@@ -17,7 +17,7 @@
             "path" : "pages/detail/detail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "咻咪",
+                "navigationBarTitleText": "ZPFOOD",
                 "enablePullDownRefresh": false
             }
             
@@ -25,8 +25,9 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "ZPFOOD",
 		"navigationBarBackgroundColor": "#ffe300",
-		"backgroundColor": "#ffe300"
+		"backgroundColor": "#fff",
+		"animationType":"zoom-fade-out"
 	}
 }

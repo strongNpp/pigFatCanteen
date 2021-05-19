@@ -3,30 +3,22 @@
 		<view class="name">
 			{{infoObj.name}}
 		</view>
+		<van-divider/>
 		<view class="fat-detail-card">
 			<view class="card-item">
-				<van-image use-loading-slot width="30" height="30"
-					src="https://cdn.ggac.com/media/work/image/2021/05/4e921430-b7b8-11eb-ba1c-0242c0a88002.jpg">
-					<text slot="loading">图片加载中</text>
-				</van-image>
+					<image src="https://cdn.ggac.com/media/work/image/2021/05/4e921430-b7b8-11eb-ba1c-0242c0a88002.jpg" mode=""></image>
 				<view>
 					<text>使用食材：</text>{{infoObj.stuff}}
 				</view>
 			</view>
 			<view class="card-item">
-				<van-image use-loading-slot width="30" height="30"
-					src="https://cdn.ggac.com/media/work/image/2021/05/4e818854-b7b8-11eb-93ad-0242c0a84002.jpg">
-					<text slot="loading">图片加载中</text>
-				</van-image>
+				<image src="https://cdn.ggac.com/media/work/image/2021/05/4e818854-b7b8-11eb-93ad-0242c0a84002.jpg" mode=""></image>
 				<view>
 					<text>完美搭配：</text> {{infoObj.collocat}}
 				</view>
 			</view>
 			<view class="card-item">
-				<van-image use-loading-slot width="30" height="30"
-					src="https://cdn.ggac.com/media/work/image/2021/05/5466f0d8-b7b8-11eb-955c-0242c0a82002.jpg">
-					<text slot="loading">图片加载中</text>
-				</van-image>
+				<image 	src="https://cdn.ggac.com/media/work/image/2021/05/5466f0d8-b7b8-11eb-955c-0242c0a82002.jpg" mode=""></image>
 				<view>
 					<text>可搭配饮品：</text> {{infoObj.drink}}
 				</view>
@@ -36,10 +28,11 @@
 </template>
 
 <script>
-	import image from '@/wxcomponents/vant/image/index';
+
+	import vandivider from '@/wxcomponents/vant/divider/index';
 	export default {
 		components: {
-			"van-image": image
+		  "van-divider":vandivider
 		},
 		data() {
 			return {
@@ -77,18 +70,14 @@
 
 <style lang="scss" scoped>
 	.fat-detail {
-		padding: 20rpx;
-
+		padding:30rpx ;
 		.name {
-			margin: 30rpx 0;
-			text-align: center;
+		   font-weight: bold;
 		}
-
 		&-card {
-			box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
-			border-radius: 4px;
+			// box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+			// border-radius: 4px;
 			padding: 30rpx;
-
 			.card-item {
 				display: flex;
 				align-items: center;
@@ -107,6 +96,7 @@
 					color: #777;
 					flex-shrink: 0;
 					margin-left: 20rpx;
+					
 				}
 			}
 		}

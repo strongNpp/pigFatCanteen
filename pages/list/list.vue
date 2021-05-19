@@ -2,14 +2,12 @@
 	<view class="fat-list-wrapper">
 		<van-tabs :active="active" @change="onChange" sticky>
 			<van-tab title="面食">
-				<view class="list-all" v-for="(item,i) in wheatenList" :key="i">
-					<view class="list-all-item" >
-						<van-image use-loading-slot width="100" height="100" radius="4" lazy-load :src="item.url">
-							<text  slot="loading">图片加载中</text>
-						</van-image>
-						<view>
+				<view class="list-all">
+					<view class="list-all-item" @click="goToDetial(item)" v-for="(item,i) in wheatenList" :key="i">
+						<image :src="item.url" mode=""></image>
+						<view class="list-all-item-cnt">
 							<view class="list-all-item-name">{{item.name}}</view>
-							<van-button size="small" :round="true" @click="goToDetial(item)">查看详情</van-button>
+
 						</view>
 					</view>
 					<!-- <van-card custom-class="list-all-item" :title="item.name" :thumb="item.url">
@@ -33,7 +31,6 @@
 	import image from '@/wxcomponents/vant/image/index';
 	export default {
 		components: {
-
 			"van-tab": vantab,
 			"van-tabs": vantabs,
 			"van-image": image
@@ -44,32 +41,32 @@
 				imageURL: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg',
 				wheatenList: [{
 						name: '西红柿鸡蛋面',
-						id:1,
+						id: 1,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg'
 					},
 					{
 						name: '豆角焖面',
-						id:2,
+						id: 2,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg',
 					},
 					{
 						name: '鸡蛋酱打卤面',
-						id:3,
+						id: 3,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg',
 					},
 					{
 						name: '黄瓜里脊肉打卤面',
-						id:4,
+						id: 4,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg'
 					},
 					{
 						name: '土豆丝打卤面',
-						id:5,
+						id: 5,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg'
 					},
 					{
 						name: '土豆茄子打卤面',
-						id:6,
+						id: 6,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg'
 					}
 				]
@@ -79,10 +76,10 @@
 		computed: {},
 		watch: {},
 		methods: {
-			goToDetial(item){
+			goToDetial(item) {
 				console.log('222')
 				uni.navigateTo({
-				    url: `/pages/detail/detail?id=${item.id}`
+					url: `/pages/detail/detail?id=${item.id}`
 				});
 			}
 		},
@@ -95,22 +92,25 @@
 	@import "@/wxcomponents/vant/common/index.wxss";
 	.fat-list-wrapper {
 		.list-all {
-			padding: 20rpx;
+			padding: 30rpx;
 			margin-top: 10rpx;
 			&-item {
-				background: #FFFFFF;
+				background-color: #f8f8f8;
 				box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 				border-radius: 4px;
-				padding: 25rpx 20rpx;
-				display: flex;
-				align-items:center;
-				margin-bottom: 15rpx
-				::v-deep .van-image {
-					margin-right: 50rpx;
+				flex: 1;
+				margin-bottom: 25rpx;
+				&-cnt{
+					padding: 15rpx;
+					
 				}
-				&-name{
-					margin-bottom: 30rpx;
+				image {
+					width: 100%;
+					height: 200px;
+					object-fit: cover;
+					border-radius: 4px 4px 0 0;
 				}
+				&-name {}
 			}
 		}
 	}
