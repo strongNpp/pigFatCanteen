@@ -31,15 +31,12 @@
 </template>
 
 <script>
-	import vandivider from '@/wxcomponents/vant/divider/index';
 	export default {
-		components: {
-			"van-divider": vandivider
-		},
+		components: {},
 		data() {
 			return {
-				stirflyList:[{
-					
+				stirflyList: [{
+
 				}],
 				wheatenList: [{
 						id: 1,

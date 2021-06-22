@@ -14,46 +14,53 @@
 				<view class="swiper-item">猪胖最爱杨记</view>
 			</swiper-item>
 		</swiper>
-		<van-tabs :active="active" sticky>
-			<van-tab title="面食">
-				<view class="list-all">
-					<view class="list-all-item" @click="goToDetial(item,'wheaten')" v-for="(item,i) in wheatenList" :key="i">
-						<view class="list-all-item-cover" :style="{backgroundImage:`url(${item.url})`}"></view>
-						<view class="list-all-item-cnt">
-							<view class="list-all-item-name">{{item.name}}</view>
-						</view>
-					</view>
+		<view class="fat-tab">
+			<text class="fat-tab-item" :class="{'active':tabActive == item.id}" @click="tabChoose(item.id)" v-for="item in tabList" :key="item.id">{{item.name}}</text>
+		</view>
+		<view class="list-all">
+			<view v-if="tabActive == 0" class="list-all-item" @click="goToDetial(item,'wheaten')" v-for="(item,i) in wheatenList" :key="i">
+				<view class="list-all-item-cover" :style="{backgroundImage:`url(${item.url})`}"></view>
+				<view class="list-all-item-cnt">
+					<view class="list-all-item-name">{{item.name}}</view>
 				</view>
-			</van-tab>
-			<van-tab title="炒菜">
-				<view class="list-all-item" @click="goToDetial(item,'stirfly')" v-for="(item,i) in stirflyList" :key="i">
-					<image :src="item.url" mode=""></image>
-					<view class="list-all-item-cnt">
-						<view class="list-all-item-name">{{item.name}}</view>
-					</view>
+			</view>
+			<view v-if="tabActive == 1" class="list-all-item" @click="goToDetial(item,'stirfly')" v-for="(item,i) in stirflyList" :key="i">
+				<image :src="item.url" mode=""></image>
+				<view class="list-all-item-cnt">
+					<view class="list-all-item-name">{{item.name}}</view>
 				</view>
-			</van-tab>
-			<van-tab title="吃顿好的">内容 3</van-tab>
-		</van-tabs>
+			</view>
+			<view v-if="tabActive == 2" class="list-all-item" >
+				暂无
+			
+			</view>
+
+		</view>
 	</view>
 </template>
 
 <script>
-	import vantab from '@/wxcomponents/vant/tab/index';
-	import vantabs from '@/wxcomponents/vant/tabs/index';
-	import image from '@/wxcomponents/vant/image/index';
 	export default {
-		components: {
-			"van-tab": vantab,
-			"van-tabs": vantabs,
-			"van-image": image
-		},
+		components: {},
 		data() {
 			return {
-				active: 0,
+				tabActive: 0,
 				imageURL: 'https://cdn.ggac.com/media/work/image/2021/05/3d444952-b798-11eb-8733-0242c0a84002.jpg',
-				stirflyList:[
+				tabList:[
 					{
+						name:'面食',
+						id:0
+					},
+					{
+						name:'炒菜',
+						id:1,
+					},
+					{
+						name:'吃顿好的',
+						id:2
+					}
+				],
+				stirflyList: [{
 						name: '辣椒炒蛋',
 						id: 1,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/e940f464-b944-11eb-af0b-0242c0a88002.jpg'
@@ -64,8 +71,7 @@
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/e940f464-b944-11eb-af0b-0242c0a88002.jpg'
 					},
 				],
-				wheatenList: [
-					{
+				wheatenList: [{
 						name: '西红柿鸡蛋面',
 						id: 1,
 						url: 'https://cdn.ggac.com/media/work/image/2021/05/3121c5a6-b93b-11eb-aade-0242c0a82002.jpg'
@@ -102,11 +108,14 @@
 		computed: {},
 		watch: {},
 		methods: {
-			goToDetial(item,flag) {
+			goToDetial(item, flag) {
 				console.log('222')
 				uni.navigateTo({
 					url: `/pages/detail/detail?id=${item.id}&flag=${flag}`
 				});
+			},
+			tabChoose(flag){
+				this.tabActive = flag
 			}
 		},
 		mounted() {
@@ -115,8 +124,6 @@
 	}
 </script>
 <style lang="scss" scoped>
-	@import "@/wxcomponents/vant/common/index.wxss";
-
 	.fat-list-wrapper {
 		.swiper-item {
 			height: 100%;
@@ -127,6 +134,30 @@
 			justify-content: center;
 			background: rgba($color: #ffe300, $alpha: 0.6);
 
+		}
+
+		.fat-tab {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20rpx 30rpx;
+
+			&-item {
+				position: relative;
+				&.active {
+					&::before {
+						position: absolute;
+						bottom: -15rpx;
+						width: 80rpx;
+						left: 50%;
+						transform: translateX(-50%);
+						content: '';
+						height: 2px;
+						background-color: #ffe300;
+						border-radius: 8px;
+					}
+				}
+			}
 		}
 
 		.list-all {
@@ -152,6 +183,7 @@
 					background-position: center center;
 					border-radius: 4px 4px 0 0;
 				}
+
 				&-name {}
 			}
 		}

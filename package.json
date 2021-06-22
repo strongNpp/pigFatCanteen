@@ -8,8 +8,8 @@
     "qs": "^6.7.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "vant-weapp": "^0.5.16",
-    "vue-loader": "^15.7.1"
+    "vue-loader": "^15.7.1",
+    "uview-ui": "^1.8.4"
   },
   "devDependencies": {
     "node-normalize-scss": "^8.0.0",
