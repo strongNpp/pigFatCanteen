@@ -43,9 +43,7 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {
-                "ad" : {}
-            },
+            "sdkConfigs" : {},
             "icons" : {
                 "android" : {
                     "hdpi" : "unpackage/res/icons/72x72.png",
@@ -100,7 +98,14 @@
         "usingComponents" : true
     },
     "mp-toutiao" : {
-        "usingComponents" : true
+        "usingComponents" : true,
+        "appid" : "tt19256f98861dc7b101",
+        "setting" : {
+            "es6" : true,
+            "postcss" : true,
+            "minified" : false,
+            "urlCheck" : false
+        }
     },
     "uniStatistics" : {
         "enable" : false
